@@ -11,6 +11,12 @@ pipeline {
             }
         }
 
+        stage('Unit Tests') {
+            steps {
+                sh 'gradle test'
+            }
+        }
+
         stage('Execute') {
             steps {
                 sh 'gradle run'
