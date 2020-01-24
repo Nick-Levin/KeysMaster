@@ -18,5 +18,3 @@ pipeline {
         }
     }
 }
-
-def rtGradle = Artifactory.newGradleBuild()
