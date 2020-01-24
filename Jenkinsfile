@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('First Stage') {
             steps {
-                sh 'echo "Hello World"'
+                sh 'gradle compile; gradle run'
             }
         }
     }
