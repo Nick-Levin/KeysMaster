@@ -1,4 +1,9 @@
 pipeline {
-    echo "Hello World"
-    echo "Hello World"
+    stages {
+        stage('First Stage') {
+            steps {
+                sh 'echo "Hello World"'
+            }
+        }
+    }
 }
