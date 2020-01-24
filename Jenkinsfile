@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        gradle "G6.1"
+    }
 
     stages {
         stage('Compile') {
@@ -15,3 +18,5 @@ pipeline {
         }
     }
 }
+
+def rtGradle = Artifactory.newGradleBuild()
