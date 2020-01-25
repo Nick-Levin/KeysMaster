@@ -27,14 +27,14 @@ pipeline {
             steps {
                 rtUpload (
                     serverId: 'Main-Artifactory',
-                    spec: """
+                    spec: '''
                         "files": [
                             {
                                 "pattern": "./build/libs/keysMaster.jar",
                                 "target": "Keys-Master/org/"
                             }
                         ]
-                    """,
+                    ''',
                     failNoOp: true
                 )
             }
