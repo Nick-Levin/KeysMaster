@@ -1,5 +1,8 @@
 pipeline {
-    agent any
+    agent {
+        docker { image 'openjdk:8u242-jdk' }
+    }
+
     tools {
         gradle "G6.1"
     }
