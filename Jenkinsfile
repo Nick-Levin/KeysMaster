@@ -24,6 +24,7 @@ pipeline {
 
         stage('Upload Artifact') {
             steps {
+                sh 'ls -l -R'
                 rtUpload (
                     serverId: 'Main-Artifactory',
                     spec: """
