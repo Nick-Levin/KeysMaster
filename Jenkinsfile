@@ -31,7 +31,7 @@ pipeline {
                         {"files": [
                             {
                                 "pattern": "./build/libs/*.jar",
-                                "target": "Keys-Master/org/Nick.jar"
+                                "target": "Keys-Master/org/keysMaster-.jar"
                             }
                         ]}
                     ''',

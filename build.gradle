@@ -43,13 +43,15 @@ jar {
     }
 }
 
+version = '1.0.0'
+jar.archiveName("keysMaster-${project.findProperty('version')}.jar")
+
 publishing {
     publications {
         maven(MavenPublication) {
             groupId 'org'
             artifactId 'keysMaster'
-            version '1.0.0'
-
+            version
             from components.java
         }
     }
