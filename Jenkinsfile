@@ -35,7 +35,7 @@ pipeline {
 
         stage('Upload Artifact') {
             steps {
-                server.upload spec: uploadSpec, failNoOp: true
+                server.upload spec: uploadSpec
             }
         }
     }
