@@ -1,5 +1,6 @@
 pipeline {
     agent {
+        label 'docker gradle with jdk'
         docker { image 'gradle:6.0.1-jdk8'}
     }
 
