@@ -24,14 +24,14 @@ pipeline {
 
         stage('Upload Artifact') {
             steps {
-                Artifactory.server('Main-Artifactory').upload spec: """{
+                Artifactory.server('Main-Artifactory').upload("""{
                     "files": [
                         {
                             "pattern": "**.jar",
                             "target": "Keys-Master/"
                         }
                     ]
-                }"""
+                }""")
             }
         }
     }
