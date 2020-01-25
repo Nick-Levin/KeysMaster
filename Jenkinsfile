@@ -30,7 +30,7 @@ pipeline {
                     spec: """
                         "files": [
                             {
-                                "pattern": "/build/libs/keysMaster.jar",
+                                "pattern": "/var/lib/jenkins/workspace/KeyMaster_nightly/build/libs/keysMaster.jar",
                                 "target": "Keys-Master/org/"
                             }
                         ]
