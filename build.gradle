@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'application'
+    id 'maven-publish'
 }
 
 java {
@@ -20,7 +21,8 @@ dependencies {
     compile 'ch.qos.logback:logback-classic:1.3.0-alpha5'
     compile 'ch.qos.logback:logback-core:1.3.0-alpha5'
 
-    compile 'junit:junit:4.12'
+    compile 'org.junit.jupiter:junit-jupiter-api:5.5.2'
+    compile 'org.junit.jupiter:junit-jupiter:5.5.2'
 }
 
 application {
@@ -29,4 +31,28 @@ application {
 
 test {
     useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        attributes "Main-Class": "$mainClassName"
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+version = '1.0.0'
+jar.archiveName("keysMaster-${project.findProperty('version')}.jar")
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId 'org'
+            artifactId 'keysMaster'
+            version
+            from components.java
+        }
+    }
 }
