@@ -1,11 +1,12 @@
 pipeline {
     agent {
-        docker { image 'openjdk:8u242-jdk' }
+//         docker { image 'openjdk:8u242-jdk' }
+        docker { image 'gradle:6.0.1-jdk8'}
     }
 
-    tools {
-        gradle "G6.1"
-    }
+//     tools {
+//         gradle "G6.1"
+//     }
 
     stages {
         stage('Show User') {
