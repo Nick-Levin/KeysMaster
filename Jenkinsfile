@@ -25,7 +25,7 @@ pipeline {
 //      WD = /var/lib/jenkins/workspace/KeyMaster_nightly
         stage('Upload Artifact') {
             steps {
-                def buildNo = env.BUILD_NUMBER
+                buildNo = env.BUILD_NUMBER
                 rtUpload (
                     serverId: 'Main-Artifactory',
                     spec: '''
