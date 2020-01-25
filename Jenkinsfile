@@ -29,8 +29,8 @@ pipeline {
                     spec: '''
                         "files": [
                             {
-                                "pattern": "**.jar",
-                                "target": "Keys-Master/"
+                                "pattern": "*/keysMaster.jar",
+                                "target": "Keys-Master/org/"
                             }
                         ]
                     ''',
