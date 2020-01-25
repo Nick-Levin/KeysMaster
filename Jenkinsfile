@@ -25,6 +25,7 @@ pipeline {
         stage('Upload Artifact') {
             steps {
                 def server = Artifactory.server 'Main-Artifactory'
+
                 def uploadSpec = """{
                     "files": [
                         {
@@ -33,7 +34,8 @@ pipeline {
                         }
                     ]
                 }"""
-                server.upload(uploadSpec)
+
+                server.upload spec: uploadSpec
             }
         }
     }
