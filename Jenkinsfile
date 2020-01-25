@@ -26,7 +26,7 @@ pipeline {
             steps {
                 rtUpload (
                     serverId: 'Main-Artifactory',
-                    sped: '''
+                    spec: '''
                         "files": [
                             {
                                 "pattern": "**.jar",
