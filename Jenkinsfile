@@ -21,5 +21,14 @@ pipeline {
                 sh 'gradle run'
             }
         }
+
+        stage('Upload Artifact') {
+            steps {
+                rtUpload (
+                    serverId: 'Main-Artifactory',
+                    specPath: ''
+                )
+            }
+        }
     }
 }
