@@ -1,6 +1,5 @@
 pipeline {
     agent {
-        label 'docker gradle with jdk'
         docker { image 'gradle:6.0.1-jdk8'}
     }
 
@@ -32,7 +31,7 @@ pipeline {
                         {"files": [
                             {
                                 "pattern": "./build/libs/*.jar",
-                                "target": "Keys-Master/org/keysMaster-.jar"
+                                "target": "Keys-Master/org/keysMaster-*.${env.BUILD_NUMBER}.jar"
                             }
                         ]}
                     ''',
