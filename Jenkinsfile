@@ -16,13 +16,6 @@ pipeline {
             }
         }
 
-        stage('Execute') {
-            steps {
-                sh 'gradle run'
-            }
-        }
-
-//      WD = /var/lib/jenkins/workspace/KeyMaster_nightly
         stage('Upload Artifact') {
             steps {
                 rtUpload (
