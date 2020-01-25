@@ -1,15 +1,16 @@
-def server = Artifactory.server 'Main-Artifactory'
-
-def uploadSpec = """{
-    "files": [
-        {
-            "pattern": "**.jar",
-            "target": "Keys-Master/"
-        }
-    ]
-}"""
-
 pipeline {
+
+    def server = Artifactory.server 'Main-Artifactory'
+
+    def uploadSpec = """{
+        "files": [
+            {
+                "pattern": "**.jar",
+                "target": "Keys-Master/"
+            }
+        ]
+    }"""
+
     agent {
         docker { image 'gradle:6.0.1-jdk8'}
     }
