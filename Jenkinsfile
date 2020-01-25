@@ -3,7 +3,7 @@ def server = Artifactory.server 'Main-Artifactory'
 def uploadSpec = """{
     "files": [
         {
-            "pattern": "*.jar",
+            "pattern": "/**.jar",
             "target": "Keys-Master/"
         }
     ]
