@@ -1,13 +1,20 @@
 pipeline {
-    agent {
-        docker { image 'openjdk:8u242-jdk' }
-    }
+    agent any
+//     agent {
+//         docker { image 'openjdk:8u242-jdk' }
+//     }
 
     tools {
         gradle "G6.1"
     }
 
     stages {
+        stage('Show User') {
+            steps {
+                sh 'echo $USER'
+            }
+        }
+
         stage('Compile') {
             steps {
                 sh 'gradle build'
