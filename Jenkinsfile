@@ -22,15 +22,15 @@ pipeline {
             }
         }
 
+//      WD = /var/lib/jenkins/workspace/KeyMaster_nightly
         stage('Upload Artifact') {
             steps {
-                sh 'pwd; ls -l -R'
                 rtUpload (
                     serverId: 'Main-Artifactory',
                     spec: """
                         "files": [
                             {
-                                "pattern": "/var/lib/jenkins/workspace/KeyMaster_nightly/build/libs/keysMaster.jar",
+                                "pattern": "./build/libs/keysMaster.jar",
                                 "target": "Keys-Master/org/"
                             }
                         ]
