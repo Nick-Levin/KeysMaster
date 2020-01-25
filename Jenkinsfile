@@ -24,14 +24,18 @@ pipeline {
 
         stage('Upload Artifact') {
             steps {
-                Artifactory.server('Main-Artifactory').upload("""{
-                    "files": [
-                        {
-                            "pattern": "**.jar",
-                            "target": "Keys-Master/"
-                        }
-                    ]
-                }""")
+                rtUpload (
+                    serverId: 'Main-Artifactory',
+                    sped: '''
+                        "files": [
+                            {
+                                "pattern": "**.jar",
+                                "target": "Keys-Master/"
+                            }
+                        ]
+                    ''',
+                    failNoOp: true
+                )
             }
         }
     }
