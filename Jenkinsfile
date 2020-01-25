@@ -25,14 +25,14 @@ pipeline {
 //      WD = /var/lib/jenkins/workspace/KeyMaster_nightly
         stage('Upload Artifact') {
             steps {
-                print(env.BUILD_NUMBER)
+                def buildNo = env.BUILD_NUMBER
                 rtUpload (
                     serverId: 'Main-Artifactory',
                     spec: '''
                         {"files": [
                             {
                                 "pattern": "./build/libs/*.jar",
-                                "target": "Keys-Master/org/keysMaster.jar"
+                                "target": "Keys-Master/org/keysMaster-${buildNo}.jar"
                             }
                         ]}
                     ''',
