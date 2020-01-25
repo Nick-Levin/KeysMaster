@@ -1,5 +1,14 @@
 def server = Artifactory.server 'Main-Artifactory'
 
+def uploadSpec = """{
+    "files": [
+        {
+            "pattern": "**.jar",
+            "target": "Keys-Master/"
+        }
+    ]
+}"""
+
 pipeline {
     agent {
         docker { image 'gradle:6.0.1-jdk8'}
@@ -24,10 +33,10 @@ pipeline {
             }
         }
 
-//         stage('Upload Artifact') {
-//             steps {
-//                 server.upload spec: uploadSpec
-//             }
-//         }
+        stage('Upload Artifact') {
+            steps {
+                server.upload(uploadSpec)
+            }
+        }
     }
 }
