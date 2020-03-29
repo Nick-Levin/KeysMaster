@@ -2,7 +2,6 @@ pipeline {
     agent {
         docker {
             image 'gradle:6.0.1-jdk8'
-            label 'north-tower'
         }
     }
 
