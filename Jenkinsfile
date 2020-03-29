@@ -6,8 +6,7 @@ pipeline {
     }
 
     parameters {
-        booleanParam(name: 'param1', defaultValue: '', description: 'example parameter 1')
-        booleanParam(name: 'param2', defaultValue: '', description: 'example parameter 2')
+        booleanParam(name: 'UnitTests', defaultValue: false, description: 'Run/Skip unit tests')
     }
 
     stages {
@@ -18,6 +17,11 @@ pipeline {
         }
 
         stage('Unit Tests') {
+            when {
+                expression {
+                    params.UnitTests
+                }
+            }
             steps {
                 sh 'gradle test'
             }
